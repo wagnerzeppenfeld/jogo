@@ -1,0 +1,23 @@
+/* Estilos das novas modalidades e do avatar */
+.avatar-comp{--av-size:34px;display:inline-flex;align-items:flex-end;justify-content:center;position:relative;width:var(--av-size);height:var(--av-size);border-radius:50%;background:var(--av-bg,#1f6f86);border:2px solid rgba(255,255,255,.35);vertical-align:middle;overflow:visible}
+.avatar-comp .av-base{font-size:calc(var(--av-size)*.62);line-height:1;align-self:center}
+.avatar-comp .av-acc{position:absolute;top:calc(var(--av-size)*-.32);left:50%;transform:translateX(-50%);font-size:calc(var(--av-size)*.45);line-height:1}
+.avatar-panel{padding:24px}
+.avatar-preview{display:flex;gap:24px;align-items:center;flex-wrap:wrap;margin-bottom:8px;padding-top:18px}
+.avatar-coins{font-weight:800;color:#ffd66b;margin:4px 0}
+.avatar-label{margin:22px 0 10px;font-size:15px;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+.avatar-grid{display:flex;flex-wrap:wrap;gap:10px}
+.avatar-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;width:84px;height:84px;font-size:30px;color:inherit;cursor:pointer;border-radius:16px;border:2px solid rgba(255,255,255,.18);background:rgba(255,255,255,.07)}
+.avatar-item small{font-size:11px;font-weight:700;opacity:.85}
+.avatar-item:hover{border-color:#57e6f2}
+.avatar-item.on{border-color:#57e6f2;background:rgba(87,230,242,.18)}
+.avatar-item.locked{opacity:.75}
+.avatar-item .swatch{display:block;width:34px;height:34px;border-radius:50%;border:2px solid rgba(255,255,255,.4)}
+.pair-grid{display:grid;grid-template-columns:repeat(var(--cols,4),1fr);gap:10px;max-width:420px;margin:12px auto}
+.pair-card{aspect-ratio:1;font-size:34px;color:inherit;cursor:pointer;border-radius:14px;border:2px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08)}
+.pair-card.flip{background:rgba(161,139,255,.35);border-color:#a18bff}
+.pair-card.done{background:rgba(87,230,242,.25);border-color:#57e6f2}
+.quiz-q{font-size:clamp(20px,4vw,28px)}
+.race-bar{height:12px;border-radius:99px;background:rgba(255,255,255,.12);overflow:hidden;margin:6px 0 12px}
+.race-bar span{display:block;height:100%;width:100%;background:linear-gradient(90deg,#ff78b7,#ffd66b);transition:width 1s linear}
+@media (prefers-reduced-motion:reduce){.race-bar span{transition:none}}

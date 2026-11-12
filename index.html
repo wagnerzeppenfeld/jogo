@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10152f">
+  <meta name="description" content="Desafio Aluno Espetacular: uma aventura educativa para desenvolver memória, atenção, lógica e matemática brincando.">
+  <title>Desafio Aluno Espetacular | Sua missão começa aqui!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/extras.css">
+  <script src="js/app.js" defer></script>
+  <script src="js/extras.js" defer></script>
+</head>
+<body>
+  <div class="space-bg" aria-hidden="true"><i class="starfield starfield-a"></i><i class="starfield starfield-b"></i><i class="nebula nebula-a"></i><i class="nebula nebula-b"></i></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Desafio Aluno Espetacular - início"><span class="brand-mark">✦</span><span class="brand-name">DESAFIO <b>ALUNO</b><strong>ESPETACULAR</strong></span></a>
+    <nav id="main-nav" class="main-nav hidden" aria-label="Navegação principal">
+      <button class="nav-link active" data-view="home">⌂ <span>Base</span></button>
+      <button class="nav-link" data-view="games">◈ <span>Missões</span></button>
+      <button class="nav-link" data-view="avatar">☺ <span>Avatar</span></button>
+      <button class="nav-link" data-view="ranking">♛ <span>Hall da fama</span></button>
+    </nav>
+    <div class="user-area"><span id="welcome-user"></span><button id="logout-btn" class="button button-quiet button-small hidden">Sair ↗</button></div>
+  </header>
+
+  <main>
+    <section id="auth-view" class="auth-layout">
+      <div class="hero-copy">
+        <div class="hero-kicker"><span class="pulse-dot"></span> CENTRAL DE EXPLORAÇÃO DO CONHECIMENTO</div>
+        <h1>Seu cérebro é<br><span>o maior superpoder.</span></h1>
+        <p>Entre em uma galáxia de desafios. Resolva enigmas, descubra padrões e transforme cada descoberta em uma nova conquista!</p>
+        <div class="skill-chips"><span>🧠 Memória</span><span>🧩 Lógica</span><span>🔢 Matemática</span><span>👀 Atenção</span></div>
+        <div class="hero-planet planet-one">🪐</div><div class="hero-planet planet-two">🌎</div><div class="hero-rocket">🚀</div>
+        <div class="hero-caption">MISSÃO #001 <b>CONHECIMENTO SEM LIMITES</b></div>
+      </div>
+      <div class="auth-card glass-panel">
+        <div class="auth-card-top"><span class="mini-orbit">✦</span><span>PORTAL DO EXPLORADOR</span><span class="online-label"><i></i> ONLINE</span></div>
+        <div class="auth-tabs"><button class="auth-tab active" data-auth="login">Entrar</button><button class="auth-tab" data-auth="register">Criar conta</button></div>
+        <div class="card-heading"><div class="heading-bot">🤖</div><h2 id="auth-title">Olá, explorador!</h2><p id="auth-subtitle">Sua próxima aventura está esperando.</p></div>
+        <form id="auth-form">
+          <label for="username">NOME DE EXPLORADOR</label>
+          <input id="username" name="username" type="text" minlength="3" maxlength="18" autocomplete="username" placeholder="Ex.: Astro123" required>
+          <label for="password">SENHA DE ACESSO</label>
+          <input id="password" name="password" type="password" minlength="4" maxlength="40" autocomplete="current-password" placeholder="Digite sua senha" required>
+          <button id="auth-submit" class="button button-primary button-full" type="submit">INICIAR MISSÃO <span>→</span></button>
+          <p id="auth-message" class="form-message" role="status"></p>
+        </form>
+        <p class="privacy-note">🔒 Use um apelido. Não informe dados pessoais.</p>
+      </div>
+    </section>
+
+    <section id="app-view" class="hidden">
+      <section id="home-view" class="page-view">
+        <div class="dashboard-hero glass-panel">
+          <div class="hero-text"><div class="hero-kicker"><span class="pulse-dot"></span> TRANSMISSÃO RECEBIDA • CENTRAL DA GALÁXIA</div><h1>Olá, <span id="home-user">explorador</span>!</h1><p>Tem uma galáxia inteira para descobrir. Qual será sua próxima conquista?</p><button class="button button-primary" data-go="games">EXPLORAR MISSÕES <span>↗</span></button></div>
+          <div class="dashboard-mascot" aria-hidden="true"><div class="mascot-aura"></div><div class="mascot-face">🤖</div><span class="mascot-star">✦</span><span class="mascot-speech">Bora aprender?</span></div>
+          <div class="hero-coordinate">SETOR 07 <b>•</b> PLANETA SABER</div>
+        </div>
+
+        <div class="progress-strip glass-panel">
+          <div class="level-emblem">🚀</div><div class="level-info"><div class="level-line"><b>NÍVEL <span id="home-level">1</span> • EXPLORADOR INICIANTE</b><span><strong id="home-xp">0</strong> XP</span></div><div class="xp-track"><span id="xp-progress"></span></div><small id="xp-caption">0 / 100 XP para o próximo nível</small></div>
+          <div class="coin-counter"><span>🪙</span><div><b id="home-coins">0</b><small>MOEDAS</small></div></div>
+        </div>
+
+        <div class="section-heading"><div><span class="eyebrow">ESCOLHA SEU PRÓXIMO DESTINO</span><h2>Mapa de missões</h2></div><span class="section-aside">6 PORTAIS DISPONÍVEIS <i>✦</i></span></div>
+        <div class="mission-grid">
+          <article class="mission-card memory-card"><div class="mission-top"><span class="mission-icon">🧠</span><span class="difficulty">SETOR 01 • MEMÓRIA</span></div><h3>Templo das Memórias</h3><p>Guarde a sequência de luzes e mostre o poder da sua memória.</p><div class="mission-meta"><span>⏱ 2–4 min</span><span>+ XP por acerto</span></div><button class="mission-button" data-game="memory">ENTRAR NO PORTAL <b>↗</b></button></article>
+          <article class="mission-card logic-card"><div class="mission-top"><span class="mission-icon">🧩</span><span class="difficulty">SETOR 02 • LÓGICA</span></div><h3>Planeta dos Padrões</h3><p>Encontre pistas, complete sequências e decifre enigmas.</p><div class="mission-meta"><span>⏱ 3–5 min</span><span>+ XP por acerto</span></div><button class="mission-button" data-game="logic">ENTRAR NO PORTAL <b>↗</b></button></article>
+          <article class="mission-card math-card"><div class="mission-top"><span class="mission-icon">🔢</span><span class="difficulty">SETOR 03 • MATEMÁTICA</span></div><h3>Estação dos Números</h3><p>Resolva operações e abasteça sua nave com energia matemática.</p><div class="mission-meta"><span>⏱ 3–5 min</span><span>+ XP por acerto</span></div><button class="mission-button" data-game="math">ENTRAR NO PORTAL <b>↗</b></button></article>
+          <article class="mission-card memory-card"><div class="mission-top"><span class="mission-icon">🃏</span><span class="difficulty">SETOR 04 • MEMÓRIA</span></div><h3>Caça-Pares</h3><p>Vire cartas espaciais e encontre todos os pares.</p><div class="mission-meta"><span>⏱ 2–4 min</span><span>3 tabuleiros</span></div><button class="mission-button" data-game="pairs">ENTRAR NO PORTAL <b>↗</b></button></article>
+          <article class="mission-card logic-card"><div class="mission-top"><span class="mission-icon">🔭</span><span class="difficulty">SETOR 05 • CONHECIMENTO</span></div><h3>Quiz Cósmico</h3><p>Perguntas sobre espaço, natureza, palavras e números.</p><div class="mission-meta"><span>⏱ 2–3 min</span><span>5 perguntas</span></div><button class="mission-button" data-game="quiz">ENTRAR NO PORTAL <b>↗</b></button></article>
+          <article class="mission-card math-card"><div class="mission-top"><span class="mission-icon">⚡</span><span class="difficulty">SETOR 06 • VELOCIDADE</span></div><h3>Corrida Relâmpago</h3><p>Resolva o máximo de contas em 30 segundos.</p><div class="mission-meta"><span>⏱ 30 s</span><span>Contra o relógio</span></div><button class="mission-button" data-game="race">ENTRAR NO PORTAL <b>↗</b></button></article>
+        </div>
+
+        <div class="lower-grid">
+          <section class="stats-panel glass-panel"><div class="panel-heading"><div><span class="eyebrow">SEU DIÁRIO DE BORDO</span><h2>Conquistas até agora</h2></div><span class="panel-spark">✦</span></div><div class="stats-row"><div class="stat-card"><span>⭐</span><div><strong id="home-points">0</strong><small>PONTOS</small></div></div><div class="stat-card"><span>🎯</span><div><strong id="home-played">0</strong><small>MISSÕES</small></div></div><div class="stat-card"><span>🏆</span><div><strong id="home-position">—</strong><small>RANKING</small></div></div></div></section>
+          <aside class="mascot-tip glass-panel"><div class="tip-bot">🤖</div><div><span class="eyebrow">DICA DO BYTE</span><p id="mascot-tip">Cada tentativa treina seu cérebro. Errar também faz parte da descoberta!</p></div></aside>
+        </div>
+      </section>
+
+      <section id="games-view" class="page-view hidden">
+        <div class="section-heading page-heading"><div><span class="eyebrow">PORTAIS DE APRENDIZAGEM</span><h2>Escolha sua missão</h2><p>Complete os desafios, ganhe XP e desbloqueie novos níveis.</p></div></div>
+        <div class="mission-grid mission-grid-large">
+          <article class="mission-card memory-card"><div class="mission-top"><span class="mission-icon">🧠</span><span class="difficulty">HABILIDADE COGNITIVA</span></div><h3>Templo das Memórias</h3><p>Observe, memorize e repita sequências cada vez mais desafiadoras.</p><div class="mission-meta"><span>Memória visual</span><span>Progressivo</span></div><button class="mission-button" data-game="memory">COMEÇAR MISSÃO <b>↗</b></button></article>
+          <article class="mission-card logic-card"><div class="mission-top"><span class="mission-icon">🧩</span><span class="difficulty">HABILIDADE COGNITIVA</span></div><h3>Planeta dos Padrões</h3><p>Descubra regras escondidas em sequências de números, cores e símbolos.</p><div class="mission-meta"><span>Raciocínio lógico</span><span>Progressivo</span></div><button class="mission-button" data-game="logic">COMEÇAR MISSÃO <b>↗</b></button></article>
+          <article class="mission-card math-card"><div class="mission-top"><span class="mission-icon">🔢</span><span class="difficulty">HABILIDADE ACADÊMICA</span></div><h3>Estação dos Números</h3><p>Resolva adições e subtrações com desafios ajustados ao seu desempenho.</p><div class="mission-meta"><span>Matemática básica</span><span>Progressivo</span></div><button class="mission-button" data-game="math">COMEÇAR MISSÃO <b>↗</b></button></article>
+          <article class="mission-card memory-card"><div class="mission-top"><span class="mission-icon">🃏</span><span class="difficulty">SETOR 04 • MEMÓRIA</span></div><h3>Caça-Pares</h3><p>Vire cartas espaciais e encontre todos os pares.</p><div class="mission-meta"><span>⏱ 2–4 min</span><span>3 tabuleiros</span></div><button class="mission-button" data-game="pairs">COMEÇAR MISSÃO <b>↗</b></button></article>
+          <article class="mission-card logic-card"><div class="mission-top"><span class="mission-icon">🔭</span><span class="difficulty">SETOR 05 • CONHECIMENTO</span></div><h3>Quiz Cósmico</h3><p>Perguntas sobre espaço, natureza, palavras e números.</p><div class="mission-meta"><span>⏱ 2–3 min</span><span>5 perguntas</span></div><button class="mission-button" data-game="quiz">COMEÇAR MISSÃO <b>↗</b></button></article>
+          <article class="mission-card math-card"><div class="mission-top"><span class="mission-icon">⚡</span><span class="difficulty">SETOR 06 • VELOCIDADE</span></div><h3>Corrida Relâmpago</h3><p>Resolva o máximo de contas em 30 segundos.</p><div class="mission-meta"><span>⏱ 30 s</span><span>Contra o relógio</span></div><button class="mission-button" data-game="race">COMEÇAR MISSÃO <b>↗</b></button></article>
+        </div>
+      </section>
+
+      <section id="avatar-view" class="page-view hidden"><div class="section-heading page-heading"><div><span class="eyebrow">SEU EXPLORADOR</span><h2>Meu avatar</h2><p>Use suas moedas para desbloquear novos visuais.</p></div></div><div id="avatar-content" class="glass-panel avatar-panel"></div></section>
+
+      <section id="play-view" class="page-view hidden">
+        <button class="back-link" id="back-games">← VOLTAR AO MAPA</button>
+        <div class="play-shell glass-panel"><div class="play-top"><span id="play-category" class="eyebrow">MISSÃO</span><span class="round-pill" id="round-label">Rodada 1</span></div><h2 id="play-title">Vamos explorar?</h2><p id="play-instructions" class="muted">Preste atenção e divirta-se!</p><div class="difficulty-note" id="difficulty-note">NÍVEL INICIAL • VOCÊ CONSEGUE!</div><div id="game-area" class="game-area"></div><p id="game-feedback" class="game-feedback" role="status" aria-live="polite"></p><div class="play-footer"><span>⭐ XP nesta missão: <strong id="session-points">0</strong></span><button id="restart-game" class="button button-quiet">REINICIAR ↻</button></div></div>
+      </section>
+
+      <section id="ranking-view" class="page-view hidden"><div class="section-heading page-heading"><div><span class="eyebrow">PILOTOS EM DESTAQUE</span><h2>Hall da fama 🏆</h2><p>Uma celebração das descobertas e conquistas da nossa comunidade.</p></div></div><div class="ranking-panel glass-panel"><div class="ranking-head"><span>POSIÇÃO</span><span>EXPLORADOR</span><span>MISSÕES</span><span>XP TOTAL</span></div><div id="ranking-list"></div><p id="ranking-empty" class="empty-state hidden">O hall está esperando seu primeiro explorador! 🌟</p></div><p class="ranking-footnote">As pontuações ficam salvas neste navegador. O ranking valoriza a participação e o aprendizado.</p></section>
+    </section>
+  </main>
+  <footer><span>✦ DESAFIO ALUNO ESPETACULAR</span><span>Aprender é uma aventura extraordinária.</span><span>PROJETO ACADÊMICO • ADS</span></footer>
+  <div id="confetti" class="confetti-layer" aria-hidden="true"></div>
+</body>
+</html>
